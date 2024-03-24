@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>#</th>
+        <th>Tên</th>
+        <th>Giá</th>
+        <th>Tên tài khoản</th>
+        <th>Rạp phim</th>
+        <th>Actions</th>
+    </tr>
+    <tr th:each="t, tStatus : ${tickets}">
+        <td th:text="${tStatus.count}"></td>
+        <td ><a th:href="@{}" th:text="${t.name}" ></a></td>
+        <td th:text="${t.price}"></td>
+        <td th:text="${t.account.name}"></td>
+        <td th:text="${t.movieTheater.name}"></td>
+        <td>
+            <a th:href="@{'/homestays/edit/' + ${t.getId()}}"> <button>Sửa</button></a>
+            <a th:href="@{'/homestays/delete/' + ${t.getId()}}"> <button>Xóa</button></a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
